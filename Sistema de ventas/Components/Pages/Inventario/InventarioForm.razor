@@ -79,6 +79,16 @@
 
     protected async Task Guardar(int id)
     {
+        var stock = await ctx.InventoryDB.Where(i => i.Id == id).FirstOrDefaultAsync();
+
+        var existe = await ctx.InventoryDB
+        .AnyAsync(i => i.Id != stock.Id && i.Stock == stock.Stock);
+
+        if (existe)
+        {
+            await jsx.InvokeVoidAsync("alert", $"Error: Ya existe {stock.Stock} en inventario");
+            return;
+        }
 
         if(oInventario.Id > 0)
         {
@@ -95,15 +105,7 @@
         // Luego valida que no exista otro registro diferente con el mismo stock.
         // Si encuentra uno distinto con el mismo valor, muestra una alerta.
 
-        var stock = await ctx.InventoryDB.Where(i => i.Id == id).FirstOrDefaultAsync();
-
-        var existe = await ctx.InventoryDB
-        .AnyAsync(i => i.Id != stock.Id && i.Stock == stock.Stock);
-
-        if (existe)
-        {
-            await jsx.InvokeVoidAsync("alert", $"Error: Ya existe {stock.Stock} en inventario");
-        }
+       
 
         StateHasChanged();
         Nav.NavigateTo("/ListaInventario");

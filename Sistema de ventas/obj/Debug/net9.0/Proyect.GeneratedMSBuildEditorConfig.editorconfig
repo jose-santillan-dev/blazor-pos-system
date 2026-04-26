@@ -17,69 +17,69 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Proyect
 build_property.RootNamespace = Proyect
-build_property.ProjectDir = C:\development\Punto de venta\Pos\Sistema de ventas\
+build_property.ProjectDir = C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\development\Punto de venta\Pos\Sistema de ventas
+build_property.MSBuildProjectDirectory = C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/App.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Layout/EmpyLayout.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Layout/EmpyLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcRW1weUxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Layout/MainLayout.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Pages/Error.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Pages/Inventario/InventarioForm.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Inventario/InventarioForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbnZlbnRhcmlvXEludmVudGFyaW9Gb3JtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Pages/Inventario/VerInventario.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Inventario/VerInventario.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbnZlbnRhcmlvXFZlckludmVudGFyaW8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Pages/Proveedores/ListaProveedores.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Proveedores/ListaProveedores.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm92ZWVkb3Jlc1xMaXN0YVByb3ZlZWRvcmVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Pages/Proveedores/Proveedores.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Proveedores/Proveedores.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm92ZWVkb3Jlc1xQcm92ZWVkb3Jlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Pages/Ventas/VentasFormulario.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Ventas/VentasFormulario.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWZW50YXNcVmVudGFzRm9ybXVsYXJpby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Pages/Ventas/VerVentas.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Ventas/VerVentas.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWZW50YXNcVmVyVmVudGFzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Pages/Weather.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Routes.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/_Imports.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/development/Punto de venta/Pos/Sistema de ventas/Components/Pages/Dashboard.razor]
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Dashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXNoYm9hcmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-nh7bs9hh1m

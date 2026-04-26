@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\development\\Punto de venta\\Pos\\Sistema de ventas\\Proyect.csproj": {}
+    "C:\\development\\projects repository\\blazor-pos-system\\Pos\\Sistema de ventas\\Proyect.csproj": {}
   },
   "projects": {
-    "C:\\development\\Punto de venta\\Pos\\Sistema de ventas\\Proyect.csproj": {
+    "C:\\development\\projects repository\\blazor-pos-system\\Pos\\Sistema de ventas\\Proyect.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\development\\Punto de venta\\Pos\\Sistema de ventas\\Proyect.csproj",
+        "projectUniqueName": "C:\\development\\projects repository\\blazor-pos-system\\Pos\\Sistema de ventas\\Proyect.csproj",
         "projectName": "Proyect",
-        "projectPath": "C:\\development\\Punto de venta\\Pos\\Sistema de ventas\\Proyect.csproj",
+        "projectPath": "C:\\development\\projects repository\\blazor-pos-system\\Pos\\Sistema de ventas\\Proyect.csproj",
         "packagesPath": "C:\\Users\\Jose\\.nuget\\packages\\",
-        "outputPath": "C:\\development\\Punto de venta\\Pos\\Sistema de ventas\\obj\\",
+        "outputPath": "C:\\development\\projects repository\\blazor-pos-system\\Pos\\Sistema de ventas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
