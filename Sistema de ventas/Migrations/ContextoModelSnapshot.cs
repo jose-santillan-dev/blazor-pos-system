@@ -3,10 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using POS.Api.Data;
+using Proyect.Data;
+
 #nullable disable
 
-namespace P.Final.Migrations
+namespace Proyect.Migrations
 {
     [DbContext(typeof(Contexto))]
     partial class ContextoModelSnapshot : ModelSnapshot
@@ -16,7 +17,7 @@ namespace P.Final.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
 
-            modelBuilder.Entity("Inventory", b =>
+            modelBuilder.Entity("Proyect.Components.Modelos.Inventory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,23 +43,15 @@ namespace P.Final.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ProvedorId")
+                    b.Property<int>("Stock")
                         .HasColumnType("INTEGER");
-
-                    b.Property<int?>("ProveedorId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("Stock")
-                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProveedorId");
 
                     b.ToTable("InventoryDB");
                 });
 
-            modelBuilder.Entity("P.Final.Components.Modelos.Proveedor", b =>
+            modelBuilder.Entity("Proyect.Components.Modelos.Proveedor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -84,7 +77,7 @@ namespace P.Final.Migrations
                     b.ToTable("ProveedorsDB");
                 });
 
-            modelBuilder.Entity("Sells", b =>
+            modelBuilder.Entity("Proyect.Components.Modelos.Ventas", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -94,73 +87,34 @@ namespace P.Final.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("FechaVenta")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("InventoryId")
+                    b.Property<int>("InventarioId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("SalePrice")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("Total")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("precioVenta")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InventoryId");
+                    b.HasIndex("InventarioId");
 
                     b.ToTable("VentasDB");
                 });
 
-            modelBuilder.Entity("Users", b =>
+            modelBuilder.Entity("Proyect.Components.Modelos.Ventas", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Cedula")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Clave")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Tipo")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UsuarioDb");
-                });
-
-            modelBuilder.Entity("Inventory", b =>
-                {
-                    b.HasOne("P.Final.Components.Modelos.Proveedor", "Proveedor")
+                    b.HasOne("Proyect.Components.Modelos.Inventory", "Inventario")
                         .WithMany()
-                        .HasForeignKey("ProveedorId");
-
-                    b.Navigation("Proveedor");
-                });
-
-            modelBuilder.Entity("Sells", b =>
-                {
-                    b.HasOne("Inventory", "Inventory")
-                        .WithMany("Ventas")
-                        .HasForeignKey("InventoryId")
+                        .HasForeignKey("InventarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Inventory");
-                });
-
-            modelBuilder.Entity("Inventory", b =>
-                {
-                    b.Navigation("Ventas");
+                    b.Navigation("Inventario");
                 });
 #pragma warning restore 612, 618
         }

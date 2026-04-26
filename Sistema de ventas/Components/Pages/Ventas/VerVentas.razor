@@ -4,8 +4,8 @@
 @using Microsoft.EntityFrameworkCore
 @inject EstadoCompartido Estado
 @inject IJSRuntime jsx
-@using POS.Api.Data;
-@using POS.Api.Modelos;
+@using Proyect.Data
+@using Proyect.Components.Modelos
 
 <PageTitle>Inventario</PageTitle>
 
@@ -13,7 +13,7 @@
     <div class="row mt-3">
 <h3 class="col">Ventas</h3>
     <div class="text-end mb-3 mt-3 col">
-        <button  style="all:unset" @onclick="AgregarNuevo"><i class="bi bi-plus-square-fill" style="font-size: 30px; color:#055D5E;"></i></button>
+        <button class="btn btn-primary" @onclick="AgregarNuevo">Agregar Nuevo</button>
     </div>
     </div>
     
@@ -24,10 +24,10 @@
                 <th scope="col">Id</th>
                 <th scope="col">Productos</th>
                 <th scope="col">Cantidad</th>
-                <th scope="col">FechaVenta</th>
+                <th scope="col">Fecha</th>
                 <th scope="col">Precio venta</th>
                 <th scope="col">Descripcion</th>
-                <th scope="col">Acciones</th>
+                <th scope="col"></th>
                 <th scope="col"><i class="bi bi-receipt" style="color: #f25d0e; font-size: 25px;"></i></th>
             </tr>
         </thead>
@@ -36,17 +36,15 @@
             {
 
                 <tr>
-                    <td>@items.Id
-
-                    </td>
-                    <td>@items.Inventory.Name</td>
+                    <td>@items.Id</td>
+                    <td>@items.Inventario.Name</td>
                     <td>@items.Cantidad</td>
-                    <td>@items.FechaVenta</td>
-                    <td>@items.SalePrice</td>
+                    <td>@items.FechaVenta.ToString("yyyy-MM-dd")</td>
+                    <td>@items.precioVenta</td>
                     <td>@items.Description</td>
                     <td>
-                        <button style="all:unset;" @onclick="() => Editar(items.Id)" ><i class="bi bi-pencil-square" style="color:#fa8b0b; font-size: 20px;"></i></button>
-                        <button style="all:unset;" @onclick="() => Borrar(items.Id)" ><i class="bi bi-trash3-fill" style="color:red; font-size: 20px;"></i></button>
+                        <button class="btn btn-warning" @onclick="() => Editar(items.Id)">Editar</button>
+                        <button class="btn btn-danger" @onclick="() => Borrar(items.Id)" >Borrar</button>
                     </td>
                     <td>
                         <a style="text-decoration: none;"
@@ -59,7 +57,7 @@
 </div>
 
 @code {
-    List<Sells> ListaVentas = new List<Sells>();
+    List<Ventas> ListaVentas = new List<Ventas>();
 
     private int link; 
 
@@ -71,20 +69,22 @@
 
     private void AgregarNuevo()
     {
-        Nav.NavigateTo("/ventas/editar/0");
+        Nav.NavigateTo("/ventasFormulario/editar/0");
     }
 
     public void Editar(int id)
     {
-        Nav.NavigateTo($"/ventas/editar/{id}");
+        Nav.NavigateTo($"/ventasFormulario/editar/{id}");
     }
 
-    
+    //Cargar a lista
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        ListaVentas = ctx.VentasDB.ToList();
+        ListaVentas = await ctx.VentasDB.ToListAsync();
     }
+
+    //Borrar
 
     protected async Task Borrar(int id)
     {
@@ -92,18 +92,13 @@
         if (listaVentas != null)
         {
             ctx.VentasDB.Remove(listaVentas);
+            await ctx.SaveChangesAsync();
+
             ListaVentas.Remove(listaVentas);
 
-            await ctx.SaveChangesAsync();
+            
             StateHasChanged();
         }
     }
 }
 
-
-<style>
-    .container h3{
-    margin-top:10px;
-    font-weight: bold;
-}
-</style>

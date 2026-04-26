@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace P.Final.Components.Modelos
+namespace Proyect.Components.Modelos
 {
-    public class ProveedorDto
+    public class Proveedor
     {
         [Key]
         public int Id { get; set; }

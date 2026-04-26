@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using P.Final.Components;
-using POS.Api.Data;
+using Proyect.Components;
+using Proyect.Data;
 using System.Net.Http;
 
 

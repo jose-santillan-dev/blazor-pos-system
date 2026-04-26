@@ -2,12 +2,11 @@
 @inject NavigationManager Nav
 @inject Contexto ctx
 @using Microsoft.EntityFrameworkCore
-@using POS.Api.Data;
-@using POS.Api.Modelos;
+@using Proyect.Data
 
 <PageTitle>Proveedores</PageTitle>
 
-<div class="container">
+@* <div class="container">
 <div class="row mt-3">
 <h4 class="col mt-3" style="font-weight: bold;">Proveedores</h4>
     <div class="text-end mb-3 mt-3  col">
@@ -42,50 +41,46 @@
         </tbody>
     </table>
 
-</div>
+</div> *@
 
 @code {
-    List<Proveedor> proveedor = new List<Proveedor>();
+    // List<Proveedor> proveedor = new List<Proveedor>();
 
-    // Inventory inventario = new Inventory();
+    // // Inventory inventario = new Inventory();
 
     
 
-    private void AgregarNuevo()
-    {
-        Nav.NavigateTo("/proveedor/editar/0");
-    }
-
-    public void Editar(int id)
-    {
-        Nav.NavigateTo($"/proveedor/editar/{id}");
-    }
-
-    protected override void OnInitialized()
-    {
-        proveedor = ctx.ProveedorsDB.ToList();
-    }
-
-    // void filtrar(){
-    //     inventario = productos.W
+    // private void AgregarNuevo()
+    // {
+    //     Nav.NavigateTo("/proveedor/editar/0");
     // }
 
-    protected async Task Borrar(int id)
-    {
-        var producto = await ctx.ProveedorsDB.FindAsync(id);
-        if (producto != null)
-        {
-            ctx.ProveedorsDB.Remove(producto);
-            proveedor.Remove(producto);
+    // public void Editar(int id)
+    // {
+    //     Nav.NavigateTo($"/proveedor/editar/{id}");
+    // }
 
-            await ctx.SaveChangesAsync();
-            StateHasChanged();
-        }
-    }
+    // protected override void OnInitialized()
+    // {
+    //     proveedor = ctx.ProveedorsDB.ToList();
+    // }
+
+    // // void filtrar(){
+    // //     inventario = productos.W
+    // // }
+
+    // protected async Task Borrar(int id)
+    // {
+    //     var producto = await ctx.ProveedorsDB.FindAsync(id);
+    //     if (producto != null)
+    //     {
+    //         ctx.ProveedorsDB.Remove(producto);
+    //         proveedor.Remove(producto);
+
+    //         await ctx.SaveChangesAsync();
+    //         StateHasChanged();
+    //     }
+    // }
 
 }
 
-
-<style>
-    
-</style>
