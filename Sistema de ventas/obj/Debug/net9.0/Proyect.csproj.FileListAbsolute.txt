@@ -510,9 +510,6 @@ C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\D
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.MvcApplicationPartsAssemblyInfo.cs
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.MvcApplicationPartsAssemblyInfo.cache
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.sourcelink.json
-C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.dll
-C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\refint\Proyect.dll
-C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.pdb
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\bin\Debug\net9.0\appsettings.Development.json
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\bin\Debug\net9.0\appsettings.json
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\bin\Debug\net9.0\Proyect.staticwebassets.runtime.json
@@ -1003,5 +1000,8 @@ C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\D
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\staticwebassets.build.endpoints.json
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.csproj.Up2Date
+C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.dll
+C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\refint\Proyect.dll
+C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.pdb
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.genruntimeconfig.cache
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\ref\Proyect.dll

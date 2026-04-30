@@ -13,7 +13,7 @@
 
     <h3 class="mt-3 pt-3 mb-3">Agregar nuevo</h3>
 
-    <EditForm Model="@oInventario" OnValidSubmit="() => Guardar(oInventario.Id)">
+    <EditForm Model="@oInventario" OnValidSubmit="Guardar">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
@@ -64,6 +64,7 @@
 
         <div class="text-center mb-3">
             <button type="submit" class="btn btn-success">Guardar</button>
+            <button class="btn btn-secondary" type="button" @onclick="Salir">Salir</button>
         </div>
     </EditForm>
     <br/>
@@ -77,37 +78,27 @@
     Inventory oInventario = new Inventory();
 
 
-    protected async Task Guardar(int id)
+    protected async Task Guardar()
     {
-        var stock = await ctx.InventoryDB.Where(i => i.Id == id).FirstOrDefaultAsync();
-
-        var existe = await ctx.InventoryDB
-        .AnyAsync(i => i.Id != stock.Id && i.Stock == stock.Stock);
-
-        if (existe)
+        if (ctx.InventoryDB.Any(x => x.Name.Trim().ToLower() == oInventario.Name.Trim().ToLower() && x.Id != oInventario.Id))
         {
-            await jsx.InvokeVoidAsync("alert", $"Error: Ya existe {stock.Stock} en inventario");
+            await jsx.InvokeVoidAsync("alert", $"Error: Ya existe {oInventario.Name} en inventario");
             return;
         }
+
 
         if(oInventario.Id > 0)
         {
             ctx.InventoryDB.Update(oInventario);
-            await ctx.SaveChangesAsync();
+
         }
         else
         {
             ctx.InventoryDB.Add(oInventario);
-            await ctx.SaveChangesAsync();
+
         }
 
-        // Obtiene el registro actual del inventario según el Id.
-        // Luego valida que no exista otro registro diferente con el mismo stock.
-        // Si encuentra uno distinto con el mismo valor, muestra una alerta.
-
-       
-
-        StateHasChanged();
+        await ctx.SaveChangesAsync();
         Nav.NavigateTo("/ListaInventario");
 
 
@@ -132,6 +123,11 @@
             }
         }
 
+    }
+
+    private void Salir()
+    {
+        Nav.NavigateTo("/ListaInventario");
     }
 
 }

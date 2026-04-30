@@ -60,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm92ZWVkb3Jlc1xQcm92ZWVkb3Jlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Ventas/Reporte.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWZW50YXNcUmVwb3J0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/development/projects repository/blazor-pos-system/Pos/Sistema de ventas/Components/Pages/Ventas/VentasFormulario.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWZW50YXNcVmVudGFzRm9ybXVsYXJpby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

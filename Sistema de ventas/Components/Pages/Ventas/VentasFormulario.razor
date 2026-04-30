@@ -20,7 +20,7 @@
 
     </div>
     
-
+    
 
     <EditForm Model="@oVentas" OnValidSubmit="Guardar">
         <DataAnnotationsValidator />
@@ -80,22 +80,14 @@
 
     List<Inventory> oInventario = new();
 
-    Inventory o2inventario = new Inventory();
-
-
     //Guardar
 
     protected async Task Guardar()
     {
-        /*revisar si la cantidad que se quiere registrar como vendida es menor o
-        igual a la cantidad disponible en el inventario*/
 
-        if (oVentas.Cantidad > cantidadEnInventario || oVentas.Cantidad < 0 )
+        if (await RevisarCantidad(oVentas.Id))
         {
-            jsx.InvokeVoidAsync("alert", "Error: Cantidad no disponible en su inventario");
-            oVentas.Cantidad = 0;
             return;
-
         }
 
         oVentas.FechaVenta = DateTime.Now.Date;
@@ -114,28 +106,6 @@
         await ctx.SaveChangesAsync();
         StateHasChanged();
         VerVentas();
-
-
-
-        // var inventarioInduvidual = await ctx.InventoryDB
-        //     .Where(i => i.Id == id)
-        //     .FirstOrDefaultAsync();
-
-        // if (inventarioInduvidual != null)
-        // {
-        //     if(ventas.Cantidad <= inventarioInduvidual.Stock){
-        //         inventarioInduvidual.Stock -= ventas.Cantidad;
-        //         ctx.InventoryDB.Update(inventarioInduvidual);
-        //         await ctx.SaveChangesAsync();
-        //         ventas = new Sells();
-        //         precioVenta = 0;
-        //     }
-        //     else{
-        //         jsx.InvokeVoidAsync("alert", "No tienes esa cantidad en el inventario");
-        //     }
-
-
-        // }
 
 
     }
@@ -168,11 +138,9 @@
                  * selección manualmente. Para que la cantidad aparezca 
                  * apenas cargue la página de edición, hay que
                  * llamar a BuscarCantidad al final de OnInitializedAsync:*/
-                await BuscarCantidad(oVentas.InventarioId);
+    await BuscarCantidad(oVentas.InventarioId);
             }
         }
-
-
 
     }
 
@@ -196,12 +164,17 @@
 
     private async Task BuscarCantidad(int id)
     {
-        var cantidad = await ctx.VentasDB
-       .Where(i => i.Id == id)
-       .FirstOrDefaultAsync();
+        var inventario = await ctx.InventoryDB
+        .FirstOrDefaultAsync(i => i.Id == id);
 
-        cantidadEnInventario = cantidad.Cantidad;
-
+        if (inventario != null)
+        {
+            cantidadEnInventario = inventario.Stock;
+        }
+        else
+        {
+            cantidadEnInventario = 0;
+        }
 
     }
 
@@ -230,6 +203,69 @@
     //     }
 
     // }*/
+
+    private async Task<bool> RevisarCantidad(int id)
+    {
+        /*revisar si la cantidad que se quiere registrar como vendida es menor o
+        igual a la cantidad disponible en el inventario*/
+
+        //validar que no sea menor que cero
+
+    if (oVentas.Cantidad < 0)
+        {
+            await jsx.InvokeVoidAsync("alert", $"Error: Cantidad no puede ser menor que sero -1");
+            return true;
+        }
+
+        //Validar Edicion
+
+        if(oVentas.Id > 0)
+        {
+            var productovendido = await ctx.VentasDB
+            .AsNoTracking()
+     .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (productovendido == null)
+            {
+                await jsx.InvokeVoidAsync("alert", "Error al buscar la venta");
+                return true;
+            }
+
+            // SOLO validar si es edición
+            if (oVentas.Cantidad != productovendido.Cantidad)
+            {
+                await jsx.InvokeVoidAsync("alert", "No puedes modificar la cantidad de una venta ya registrada");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+   
+        var producto = await ctx.InventoryDB
+         .FirstOrDefaultAsync(x => x.Id == oVentas.InventarioId);
+
+        if (producto == null)
+        {
+            await jsx.InvokeVoidAsync("alert", $"Se ha producido un Error en la consulta de busqueda");
+            return true;
+        }
+
+        if (producto.Stock < oVentas.Cantidad)
+        {
+            await jsx.InvokeVoidAsync("alert", $"Error: No hay suficiente inventario");
+            return true;
+        }
+
+        //Descontar automáticamente el stock al vender
+        producto.Stock -= oVentas.Cantidad;
+        ctx.InventoryDB.Update(producto);
+        return false;
+
+    }
 
 
 

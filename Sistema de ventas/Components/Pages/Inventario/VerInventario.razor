@@ -29,6 +29,7 @@
                 <th scope="col">Fecha de caducidad</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Descripcion</th>
+                <th scope="col">Editar/Borrar</th>
                 
             </tr>
         </thead>
@@ -36,7 +37,7 @@
             @foreach(var item in ListaInventario)
             {
                 <tr>
-                    <td>@item.Id</td>
+                    <td>@MostrarIndex()</td>
                     <td>@item.Name</td>
                     <td>@item.Stock</td>
                     <td>@item.Estado</td>
@@ -44,6 +45,10 @@
                     <td>@item.FechaCaducidad</td>
                     <td>@item.BasePrice</td>
                     <td>@item.Description</td>
+                    <td>
+                        <button class="btn btn-warning" @onclick="() => Editar(item.Id)">Editar</button>
+                        <button class="btn btn-danger" @onclick="() => Borrar(item.Id)">Borrar</button>
+                    </td>
                     
                 </tr>
             }
@@ -54,6 +59,7 @@
 </div>
 
 @code {
+    int index = 1;
 
     public List<Inventory> ListaInventario = new List<Inventory>();
 
@@ -73,9 +79,25 @@
     }
 
 
-    protected void Borrar(int id)
+    protected async Task Borrar(int id)
     {
-        // Nav.NavigateTo($"/eliminarInvenatario/{id}");
+        var listaInventario = await ctx.InventoryDB.FindAsync(id);
+        if (listaInventario != null)
+        {
+            ctx.InventoryDB.Remove(listaInventario);
+            await ctx.SaveChangesAsync();
+
+            ListaInventario.Remove(listaInventario);
+
+
+            StateHasChanged();
+        }
+    }
+
+
+    private int MostrarIndex()
+    {
+        return index++;
     }
  
     

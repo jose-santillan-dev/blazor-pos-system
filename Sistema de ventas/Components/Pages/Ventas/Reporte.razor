@@ -1,0 +1,24 @@
+﻿@page "/ventasReport/{id:int}"
+@inject Contexto ctx
+@using Proyect.Data
+@using Microsoft.EntityFrameworkCore;
+
+<h3>Reporte</h3>
+
+
+<p>Cantidad:@oVentas.Cantidad </p>
+
+
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    Ventas oVentas = new Ventas();
+
+    protected override async Task OnInitializedAsync()
+    {
+        oVentas = await ctx.VentasDB.FirstOrDefaultAsync(x => x.Id == id);
+    }
+
+}
