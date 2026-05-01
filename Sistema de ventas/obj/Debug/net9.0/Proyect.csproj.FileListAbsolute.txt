@@ -947,7 +947,6 @@ C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\D
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\scopedcss\bundle\Proyect.styles.css
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\scopedcss\projectbundle\Proyect.bundle.scp.css
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\compressed\o1vyz518cr-qkrf6ep8tk.gz
-C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\compressed\oh7pytrah7-cgjph30bpz.gz
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\compressed\v2iv6ef8wn-t1cqhe9u97.gz
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\compressed\m9wm6i3epp-c2jlpeoesf.gz
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\compressed\u60hngk2dp-sejl45xvog.gz
@@ -1005,3 +1004,4 @@ C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\D
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.pdb
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.genruntimeconfig.cache
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\ref\Proyect.dll
+C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\compressed\oh7pytrah7-ij9bkx5smq.gz

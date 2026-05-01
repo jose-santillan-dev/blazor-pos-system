@@ -46,7 +46,7 @@
                 </div>
                 <div class="col">
                     <label for="price" class="form-label">Sub Total</label>
-                    <input type="number" id="price" class="form-control" step="0.01" readonly value="@(oVentas.precioVenta = (precioBase * oVentas.Cantidad))" />
+                    <input type="number" id="price" class="form-control" step="0.01" readonly value="@(precioVenta = (precioBase * oVentas.Cantidad))" />
                 </div>
             </div>
 
@@ -79,7 +79,11 @@
 
     [Parameter] public int Id { get; set; }
 
-    private int? cantidadEnInventario = 0; 
+    private int? cantidadEnInventario = 0;
+
+    //Esta variable se encarga de almacenar el total del precio venta para luego agregarlo a la base de datos
+    //en el metodo guardar oVentas.PrecioVenta = precioVenta;
+    private decimal precioVenta;
 
     Ventas oVentas = new Ventas();
 
@@ -89,6 +93,8 @@
 
     protected async Task Guardar()
     {
+
+        oVentas.precioVenta = precioVenta;
 
         if (await RevisarCantidad(oVentas.Id))
         {

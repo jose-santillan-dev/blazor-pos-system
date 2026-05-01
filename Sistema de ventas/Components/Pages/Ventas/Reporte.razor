@@ -3,12 +3,24 @@
 @using Proyect.Data
 @using Microsoft.EntityFrameworkCore;
 
-<h3>Reporte</h3>
 
+<hr />
+<h2>Reporte</h2>
 
-<p>Cantidad:@oVentas.Cantidad </p>
+<h4>CODIGO: @oVentas.Id </h4>
 
+<h4>CANTIDAD: @oVentas.Cantidad </h4>
 
+<h4>DESCRIPCION: @oVentas.Description </h4>
+
+<h4>FECHA DE VENTA: @oVentas.FechaVenta </h4>
+
+<h4>PRECIO TOTAL: @oVentas.precioVenta </h4>
+<hr />
+
+<button class="btn btn-warning" onclick="imprimir()">Imprimir</button>
+
+<script>site.js</script>
 
 @code {
     [Parameter]
