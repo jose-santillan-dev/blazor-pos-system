@@ -14,15 +14,15 @@ namespace Proyect.Components.Modelos
         [Key] public int Id { get; set; }
 
         [Required] public string Name { get; set; } = string.Empty;
-        public int Stock { get; set; } = 0;
+        public int Stock { get; set; } 
 
         public string Estado { get; set; } = Estados.Bueno.ToString();
 
-        public DateTime FechaCaducidad { get; set; }
+        public DateTime FechaCaducidad { get; set; } = DateTime.Now.Date;
 
         public DateTime Fecha { get; set; } = DateTime.Now.Date;
 
-        public double BasePrice { get; set; } = 0;
+        public decimal BasePrice { get; set; } = 0;
         public string? Description { get; set; }
 
         

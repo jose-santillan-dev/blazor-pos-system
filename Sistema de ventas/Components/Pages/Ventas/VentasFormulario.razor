@@ -42,11 +42,11 @@
                 
                 <div class="col">
                     <label for="cant" class="form-label">Cantidad | Disponible: @cantidadEnInventario </label>
-                    <InputNumber id="cant" class="form-control" @bind-Value="oVentas.Cantidad" />
+                    <InputNumber id="cant" class="form-control" @bind-Value="oVentas.Cantidad"  />
                 </div>
                 <div class="col">
-                    <label for="price" class="form-label">Precio</label>
-                    <InputNumber id="price" class="form-control" @bind-Value="oVentas.precioVenta" step="0.01"/>
+                    <label for="price" class="form-label">Sub Total</label>
+                    <input type="number" id="price" class="form-control" step="0.01" readonly value="@(oVentas.precioVenta = (precioBase * oVentas.Cantidad))" />
                 </div>
             </div>
 
@@ -54,6 +54,11 @@
 
        
         <div class="row mb-3">
+
+            <div class="col">
+                <label for="precioBase" class="form-label">Precio Base:</label>
+                <Input id="precioBase"  class="form-control" readonly value="@precioBase" />
+            </div>
 
             <div class="col">
                 <label for="desc" class="form-label">Descripcion</label>
@@ -74,7 +79,7 @@
 
     [Parameter] public int Id { get; set; }
 
-    private int cantidadEnInventario = 0; 
+    private int? cantidadEnInventario = 0; 
 
     Ventas oVentas = new Ventas();
 
@@ -144,17 +149,21 @@
 
     }
 
-    /*Estas dos funciones ActualizarCantidadSeleccionada y BuscarCantidad
-  * se encargar una de traer el id desde el select hasta aca para primero
-  * validar que no sea nulo y luego darselo a BuscarCantidad para que lo
-  * relaciona que el producto en inventario y traiga su cantidad
-  */
+        /*Estas dos funciones ActualizarCantidadSeleccionada y BuscarCantidad
+      * se encargar una de traer el id desde el select hasta aca para primero
+      * validar que no sea nulo y luego darselo a BuscarCantidad para que lo
+      * relaciona que el producto en inventario y traiga su cantidad
+      */
+
+    
 
     private async Task ActualizarCantidadSeleccionada()
     {
         if (oVentas.InventarioId > 0)
         {
             await BuscarCantidad(oVentas.InventarioId);
+            await Buscar_precio_base(oVentas.InventarioId);
+
         }
         else
         {
@@ -178,31 +187,29 @@
 
     }
 
-    /* void ActucalizarPrecio(ChangeEventArgs e)
-    // {
+    //Esta funcion lo que hace es que busca el precioBase de el producto para luego
+    //ser calcualdo en el formulario ventas cuando se selecciona una cantidad
 
-    //     if (int.TryParse(e.Value?.ToString(), out int nuevoNumero))
-    //     {
-    //         oVentas.Cantidad = nuevoNumero;
-    //     }
-    //     else
-    //     {
-    //         jsx.InvokeVoidAsync("alert", "Valor no valido");
-    //     }
 
-    //     if (oVentas.InventoryId != null)
-    //         var precioVentaF = productos
-    //         .Where(p => p.Id == ventas.InventoryId).FirstOrDefault();
+    private decimal precioBase;
 
-    //         precioVenta = precioVentaF.BasePrice * ventas.Cantidad;
+    private async Task Buscar_precio_base(int id)
+    {
+        var inventario = await ctx.InventoryDB
+        .FirstOrDefaultAsync(i => i.Id == id);
 
-    //         ventas.SalePrice = precioVenta;
-    //     }
-    //     else{
-    //         jsx.InvokeVoidAsync("alert", "El valor no puede ser nulo");
-    //     }
+        if (inventario != null)
+        {
+            precioBase = inventario.BasePrice;
+        }
+        else
+        {
+            precioBase = 0;
+        }
 
-    // }*/
+    }
+
+    
 
     private async Task<bool> RevisarCantidad(int id)
     {

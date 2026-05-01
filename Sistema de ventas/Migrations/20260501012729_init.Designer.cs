@@ -11,8 +11,8 @@ using Proyect.Data;
 namespace Proyect.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20260424223253_Se separo Fecha y Hora")]
-    partial class SeseparoFechayHora
+    [Migration("20260501012729_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,9 +40,6 @@ namespace Proyect.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("FechaCaducidad")
-                        .HasColumnType("TEXT");
-
-                    b.Property<TimeSpan>("Hora")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -97,9 +94,6 @@ namespace Proyect.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("FechaVenta")
-                        .HasColumnType("TEXT");
-
-                    b.Property<TimeSpan>("Hora")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("InventarioId")

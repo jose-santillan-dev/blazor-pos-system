@@ -1,12 +1,14 @@
-﻿namespace Proyect.Components.Modelos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Proyect.Components.Modelos
 {
     public class Ventas
     {
         public int Id { get; set; }
 
-        public int Cantidad { get; set; }
+        [Required] public int Cantidad { get; set; }
 
-        public string Description { get; set; }
+        [Required]public string Description { get; set; }
 
         public DateTime FechaVenta { get; set; } 
 

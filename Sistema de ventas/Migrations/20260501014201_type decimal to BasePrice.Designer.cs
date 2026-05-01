@@ -11,8 +11,8 @@ using Proyect.Data;
 namespace Proyect.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20260424210819_Initial Create")]
-    partial class InitialCreate
+    [Migration("20260501014201_type decimal to BasePrice")]
+    partial class typedecimaltoBasePrice
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,8 +26,8 @@ namespace Proyect.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("BasePrice")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("BasePrice")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");

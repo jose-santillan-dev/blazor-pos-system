@@ -23,8 +23,8 @@ namespace Proyect.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("BasePrice")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("BasePrice")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
