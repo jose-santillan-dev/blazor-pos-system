@@ -1004,4 +1004,4 @@ C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\D
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.pdb
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\Proyect.genruntimeconfig.cache
 C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\ref\Proyect.dll
-C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\compressed\oh7pytrah7-ij9bkx5smq.gz
+C:\development\projects repository\blazor-pos-system\Pos\Sistema de ventas\obj\Debug\net9.0\compressed\oh7pytrah7-137idhevj5.gz
